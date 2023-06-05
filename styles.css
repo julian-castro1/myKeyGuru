@@ -1,0 +1,119 @@
+body{
+    display: flex;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+.side{
+    display: flex;
+    flex-direction: column;
+    width: 6%;
+    height: 100vh;
+    align-items: center;
+    margin-top: 20px;
+}
+.icon{
+    width: 30px;
+    height: 30px;
+    padding: 16px;
+}
+#selected{
+    padding: 0;
+    align-items: center;
+}
+#page_selected{
+    display: flex;
+    padding: 9px;
+    background-color: #78AB5E;
+    border-radius: .6em;
+}
+#home{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.main{
+    display: flex;
+    width: 96%;
+    height: 100vh;
+    background-color: #F2F2F2;
+}
+.cards{
+    flex: 1;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 12px;
+    margin-right: 12px;
+    padding: 17px;
+    border-radius: 1.3em;
+}
+.title{
+    margin: 20px;
+    font-weight: 700;
+    font-size: x-large;
+}
+.card_title{
+    font-weight: 500;
+    color: #29630c;
+}
+#add_select{
+    display: flex;
+    padding-left: 15px;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+.button_icon{
+    height: 2em;
+}
+#add_to{
+    flex: .7;
+    font-weight: 400;
+    font-size: .9em;
+    color: #78AB5E;
+}
+#van_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: #78AB5E;
+    border-radius: .6em;
+    min-height: 2.4em;
+}
+#office_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: #E2E1E1;
+    border-radius: .6em;
+    min-height: 2.4em;
+}
+.input_row{
+    display: flex;
+    gap: 1em;
+}
+.in_field{
+    flex: 3;
+    background-color: #E2E1E1;
+    border-radius: .6em;
+}
+.submit{
+    display: flex;
+    color: #FFFFFF;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        background-color: #78AB5E;
+        border-radius: .6em;
+        min-height: 2em;
+}
+#alert{
+    height: 85vh;
+}
