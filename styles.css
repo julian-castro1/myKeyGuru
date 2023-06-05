@@ -43,13 +43,13 @@ body{
 .card{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1.2em;
     background-color: #ffffff;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 12px;
-    margin-right: 12px;
-    padding: 17px;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 1.2em;
     border-radius: 1.3em;
 }
 .title{
@@ -61,6 +61,77 @@ body{
     font-weight: 500;
     color: #29630c;
 }
+#cap_bar{
+    background-color: #E2E1E1;
+    display: flex;
+    flex: 1;
+    color: #707070;
+    border-radius: .6em;
+    min-height: 2em;
+    align-items: center;
+    justify-content: center;
+}
+
+#SKU_info{
+    display: flex;
+}
+#left,#mid,#right{
+    display: flex;
+    margin: .3em;
+    align-items: center;
+    justify-content: center;
+}
+#left{
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    flex: .8;
+}
+#on_van{
+    color: #78AB5E;
+    font-weight: 800;
+}
+#total_qty{
+    color: #78AB5E;
+    font-weight: 800;
+    font-size: x-large;
+}
+.qty_icon{
+    height: 1.6em;
+}
+#mid{
+    flex-direction: column;
+    flex: 1;
+}
+.icon_info{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: .7em;
+    flex: 1;
+}
+#divider{
+    background-color: #707070;
+    flex: .01;
+}
+#right{
+    flex-direction: column;
+    flex: 1.4;
+    gap: .2em;
+    background-color: #f1f1f1;
+    border-radius: .8em;
+    margin-left: 1em;
+    min-height: 4em;
+}
+#location_text{
+    font-size: small;
+}
+#loc{
+    color: #78AB5E;
+    font-weight: 800;
+    font-size: x-large;
+}
+
 #add_select{
     display: flex;
     padding-left: 15px;

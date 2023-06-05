@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>keyGuru</title>
 </head>
@@ -33,7 +33,35 @@
             </div>
             <div class="card" id="sku_card">
                 <span class="card_title">search by SKU:</span>
-                
+                <div class="input_row" id="add_field">
+                    <div class="in_field"></div>
+                    <div class="submit">search</div>
+                </div>
+                <div id="SKU_info">
+                    <div id="left">
+                        <span id="total_text">total:</span>
+                        <span id="total_qty">0</span>
+                    </div>
+                    <div id="mid">
+                        <div class="icon_info" id="van">
+                            <img class="qty_icon" src="/src/icons/van_g.svg" alt="Home icon">
+                            <span>:</span>
+                            <span id="on_van">0</span>
+                        </div>
+                        <div class="icon_info" id="office">
+                            <img class="qty_icon" src="/src/icons/office_g.svg" alt="Home icon">
+                            <span>:</span>
+                            <span id="on_van">0</span>
+                        </div>
+                    </div>
+                    <div id="divider">
+                        
+                    </div>
+                    <div id="right">
+                        <span id="location_text">location</span>
+                        <span id="loc">n/a</span>
+                    </div>
+                </div>
             </div>
             <div class="card" id="add_card">
                 <span class="card_title">add key:</span>
