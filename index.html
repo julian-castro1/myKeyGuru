@@ -34,7 +34,7 @@
             <div class="card" id="sku_card">
                 <span class="card_title">search by SKU:</span>
                 <div class="input_row" id="add_field">
-                    <div class="in_field"></div>
+                    <input class="in_field"></input>
                     <div class="submit">search</div>
                 </div>
                 <div id="SKU_info">
@@ -44,12 +44,12 @@
                     </div>
                     <div id="mid">
                         <div class="icon_info" id="van">
-                            <img class="qty_icon" src="/src/icons/van_g.svg" alt="Home icon">
+                            <img class="qty_icon" src="/src/icons/van_g.svg" alt="van icon">
                             <span>:</span>
                             <span id="on_van">0</span>
                         </div>
                         <div class="icon_info" id="office">
-                            <img class="qty_icon" src="/src/icons/office_g.svg" alt="Home icon">
+                            <img class="qty_icon" src="/src/icons/office_g.svg" alt="office icon">
                             <span>:</span>
                             <span id="on_van">0</span>
                         </div>
@@ -62,21 +62,30 @@
                         <span id="loc">n/a</span>
                     </div>
                 </div>
+                <div id="dec_inv">
+                    <span>use key from...</span>
+                    <div class="button_icon" id="van_rm_button">
+                        <img class='gen_icon'src="/src/icons/van.svg" alt="van icon">
+                    </div>
+                    <div class="button_icon" id="office_rm_button">
+                        <img class='gen_icon' src="/src/icons/office.svg" alt="office icon">
+                    </div>
+                </div>
             </div>
             <div class="card" id="add_card">
                 <span class="card_title">add key:</span>
                 <div id="add_select">
                     <span id="add_to">adding to...</span>
-                    <div id="van_button">
-                        <img class="button_icon" src="/src/icons/van.svg" alt="Home icon">
+                    <div class="button_icon" id="van_button">
+                        <img class='gen_icon' src="/src/icons/van.svg" alt="van icon">
                     </div>
-                    <div id="office_button">
-                        <img class="button_icon" src="/src/icons/office.svg" alt="Home icon">
+                    <div class="button_icon" id="office_button">
+                        <img class='gen_icon' src="/src/icons/office.svg" alt="office icon">
                     </div>
                 </div>
                 <div class="input_row" id="add_field">
-                    <div class="in_field"></div>
-                    <div class="submit">add</div>
+                    <input class="in_field" id="SKU_input"></input>
+                    <div class="submit" id="add_button">add</div>
                 </div>
             </div>
         </div>
@@ -87,4 +96,6 @@
         </div>
     </div>
 </body>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
+<script src="script.js"></script>
 </html>
