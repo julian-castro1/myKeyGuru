@@ -1,101 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>keyGuru</title>
-</head>
-<body>
-    <div class="side">
-        <img class="icon" id='home' src="/src/icons/home.svg" alt="Home icon">
-        <div id="page_selected">
-            <img id="selected" class="icon" src="/src/icons/inventory.svg" alt="Inventory icon">
-        </div>
-        <img class="icon" src="/src/icons/attach_money.svg" alt="Financials icon">
-        <img class="icon" src="/src/icons/receipt_long.svg" alt="Transactions icon">
-        <img class="icon" src="/src/icons/search.svg" alt="Search icon">
-        <img class="icon" src="/src/icons/navigation.svg" alt="Navigation icon">
-    </div>
-    <div class="main">
-        <div class="cards">
-            <div class="title">Inventory</div>
-            <div class="card" id="cap_card">
-                <span class="card_title">% of capacity:</span>
-                <div id="cap_bar">
-                    <span>0%</span>
-                </div>
-            </div>
-            <div class="card" id="sku_card">
-                <span class="card_title">search by SKU:</span>
-                <div class="input_row" id="add_field">
-                    <input class="in_field"></input>
-                    <div class="submit">search</div>
-                </div>
-                <div id="SKU_info">
-                    <div id="left">
-                        <span id="total_text">total:</span>
-                        <span id="total_qty">0</span>
-                    </div>
-                    <div id="mid">
-                        <div class="icon_info" id="van">
-                            <img class="qty_icon" src="/src/icons/van_g.svg" alt="van icon">
-                            <span>:</span>
-                            <span id="on_van">0</span>
-                        </div>
-                        <div class="icon_info" id="office">
-                            <img class="qty_icon" src="/src/icons/office_g.svg" alt="office icon">
-                            <span>:</span>
-                            <span id="on_van">0</span>
-                        </div>
-                    </div>
-                    <div id="divider">
-                        
-                    </div>
-                    <div id="right">
-                        <span id="location_text">location</span>
-                        <span id="loc">n/a</span>
-                    </div>
-                </div>
-                <div id="dec_inv">
-                    <span>use key from...</span>
-                    <div class="button_icon" id="van_rm_button">
-                        <img class='gen_icon'src="/src/icons/van.svg" alt="van icon">
-                    </div>
-                    <div class="button_icon" id="office_rm_button">
-                        <img class='gen_icon' src="/src/icons/office.svg" alt="office icon">
-                    </div>
-                </div>
-            </div>
-            <div class="card" id="add_card">
-                <span class="card_title">add key:</span>
-                <div id="add_select">
-                    <span id="add_to">adding to...</span>
-                    <div class="button_icon" id="van_button">
-                        <img class='gen_icon' src="/src/icons/van.svg" alt="van icon">
-                    </div>
-                    <div class="button_icon" id="office_button">
-                        <img class='gen_icon' src="/src/icons/office.svg" alt="office icon">
-                    </div>
-                </div>
-                <div class="input_row" id="add_field">
-                    <input class="in_field" id="SKU_input"></input>
-                    <div class="submit" id="add_button">add</div>
-                </div>
-            </div>
-        </div>
-        <div class="cards">
-            <div class="card" id="alert">
-                <div class="card_title" id="alert">alerts</div>
-            </div>
-        </div>
-    </div>
-</body>
-<script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
-<script src="script.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
