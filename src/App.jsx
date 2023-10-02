@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import { auth } from './firebase'; // adjust the import to your file structure
 import { signOut } from 'firebase/auth';
 import { themes } from './themes';
 import ThemeButton from './components/ThemeButton'
+import Home from './components/Home'
+import InventoryPage from './components/InventoryPage'
 
 function App() {
   const [theme, changeTheme] = useState(themes.dark);
@@ -35,14 +37,19 @@ function App() {
       <ThemeButton theme={theme} changeTheme={handleThemeChange} />
         <Routes>
           <Route path="/" element={
-            user ? (
-              <div>
-                Welcome, {user.email}
-                <button onClick={logout}>Logout</button>
-              </div>
-            ) : (
-              <Login theme={theme} />
-            )
+            user ? 
+              <Home theme={theme} /> :
+              <Navigate to="/login" />
+          }/>
+          <Route path='/login' element={
+            user ? 
+              <Navigate to="/inventory"/> : 
+              <Login theme={theme} /> 
+          } />
+          <Route path="/inventory" element={
+            user ? 
+              <InventoryPage theme={theme} /> :
+              <Navigate to="/login" />
           }/>
         </Routes>
     </Router>
