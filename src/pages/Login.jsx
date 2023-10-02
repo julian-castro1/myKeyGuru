@@ -52,10 +52,10 @@ function Login({theme}) {
             ) : (
                 <ButtonContainer textColor={theme.text} color={theme.secondary} onClick={signIn}>Sign In</ButtonContainer>
             )}
-            <ButtonContainer textColor={theme.text} color={theme.back4} onClick={resetPassword}>Forgot Password</ButtonContainer>
             <ButtonContainer textColor={theme.text} color={theme.primary} onClick={() => setIsSignUp(!isSignUp)}>
                 {isSignUp ? 'Already have an account? Sign In' : 'Create an account'}
             </ButtonContainer>
+            <ButtonContainer textColor={theme.text} color={theme.back1} onClick={resetPassword}>Forgot Password</ButtonContainer>
         </LoginContainer>
     </PageContainer>
   );
