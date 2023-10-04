@@ -1,23 +1,30 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getKeyInfo } from './AWS';
 import IconBase from '../assets/icons/IconBase';
 import IconVan from '../assets/icons/IconVan';
 import MoreInfoPopup from './MoreInfoPopup';
 import ConfirmPopup from './ConfirmPopup';
 
-function SearchCard({theme}){
+function SearchCard({theme, dispSKU, dispLoc}){
     const [displaying, setDisplaying] = useState(false);
     const [info, setInfo] = useState({});
     const [searchValue, setSearchValue] = useState("");
     const [moreInfo, setMoreInfo] = useState(false);
     const [sellConfirm, setSellConfirm] = useState(false);
 
+    useEffect(() => {}, [info['on_van'], info['on_base']]);
+    useEffect(() => {
+        if (dispSKU) {
+            fetchInfo(dispSKU, dispLoc);
+        }
+    }, [dispSKU, dispLoc]);
 
-    const fetchInfo = async (SKU) => {
+    const fetchInfo = async (SKU, loc = null) => {
         try {
             const data = await getKeyInfo({SKU:SKU});
+            if(loc){ data['location'] = loc; }
             setInfo(data);
             setDisplaying(true);
         } catch (err) {
@@ -61,12 +68,12 @@ function SearchCard({theme}){
                 </TotalContainer>
                 <PlacesContainer>
                     <PlaceContainer>
-                        <IconContainer> <IconVan  theme={theme}/> </IconContainer>
+                        <IconContainer> <IconVan  color={theme.text}/> </IconContainer>
                         <span>:</span>
                         <InvValue theme={theme}>{displaying ? info['on_van'] : '-'} </InvValue>
                     </PlaceContainer>
                     <PlaceContainer>
-                        <IconContainer> <IconBase  theme={theme}/> </IconContainer>
+                        <IconContainer> <IconBase  color={theme.text}/> </IconContainer>
                         <span>:</span>
                         <InvValue theme={theme}>{displaying ? info['on_base'] : '-'} </InvValue>
                     </PlaceContainer>
@@ -124,6 +131,9 @@ const SearchInput = styled.input`
     text-align: center;
 
     flex: 5;
+
+    font-size: 1rem;
+    font-weight: 600;
 
     background-color: ${props => props.theme.back3};
     color: ${props => props.theme.text};
@@ -311,6 +321,7 @@ const IconContainer = styled.div`
 
 SearchCard.propTypes = {
     theme: PropTypes.dict,
+    dispSKU: PropTypes.string,
 };
 
 export default SearchCard;

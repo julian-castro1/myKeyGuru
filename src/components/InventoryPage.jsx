@@ -4,10 +4,32 @@ import NavigationBar from './NavigationBar'
 import SearchCard from './SearchCard';
 import AddCard from './AddCard';
 import AlertsCard from './AlertsCard';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { addKeyFetch } from './AWS';
 
 
 function InventoryPage({theme}){
     
+    const [viewingSKU, setViewingSKU] = useState(null);
+    const [viewingLoc, setViewingLoc] = useState(null);
+    const [addKeySKU, setAddKeySKU] = useState(null);
+
+    const addKey = async (loc) => {
+        try {
+            const data = await addKeyFetch({SKU:addKeySKU, loc:loc});
+            console.log(data.location)
+            setViewingSKU(addKeySKU);
+            data.location && setViewingLoc(data.location.replace(/^"|"$/g, ''));
+        } catch (err) {
+            if (err && err.message) {
+                alert(err.message);
+            } else {
+                alert("An error occurred while fetching the key information.");
+            }
+        }
+    }
+
     return (
         <PageContainer color={theme.back3}>
             <NavigationBar current="inv" theme={theme}/>
@@ -15,8 +37,8 @@ function InventoryPage({theme}){
                 <TitleContainer theme={theme}> <span>Inventory</span> </TitleContainer>
                 <Panes>
                     <Pane theme={theme}>
-                        <SearchCard theme={theme}/>
-                        <AddCard theme={theme}/>
+                        <SearchCard theme={theme} dispSKU={viewingSKU} dispLoc={viewingLoc}/>
+                        <AddCard theme={theme} value={addKeySKU} onChange={setAddKeySKU} addKey={addKey}/>
                     </Pane>
                     <Pane theme={theme}>
                         <AlertsCard theme={theme}/>

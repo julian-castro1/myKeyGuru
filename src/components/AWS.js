@@ -16,3 +16,18 @@ export function getKeyInfo({SKU = "0", MMY = "0"}){
     });
 }
 
+export function addKeyFetch({SKU = "0", loc = 'van'}){
+    const url = "https://v5jvlcpg3m.execute-api.us-east-1.amazonaws.com/default/addKey_ext";
+    const data = {SKU, loc};
+    return fetch(url, {
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify(data),
+    }).then((response) => {
+        if (!response.ok) {
+          throw new Error(`Not enough to add to Van! Add to Base first`);
+        }
+        return response.json()
+    });
+}
+
