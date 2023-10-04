@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { getKeyInfo } from './AWS';
 import IconBase from '../assets/icons/IconBase';
 import IconVan from '../assets/icons/IconVan';
+import MoreInfoPopup from './MoreInfoPopup';
 
 function SearchCard({theme}){
     const [displaying, setDisplaying] = useState(false);
-    const [info, setInfo] = useState({})
-    const [searchValue, setSearchValue] = useState("")
+    const [info, setInfo] = useState({});
+    const [searchValue, setSearchValue] = useState("");
+    const [moreInfo, setMoreInfo] = useState(false);
 
 
     const fetchInfo = async (SKU) => {
@@ -24,14 +26,24 @@ function SearchCard({theme}){
             }
         }
     };
+    const sellKey = async (SKU) => {
 
-
+    };
+    const moreInfoClicked = () => {
+        setMoreInfo(!moreInfo);
+    }
+    const viewUHS = () => {
+        window.open(info['product_link'], '_blank');
+    }
     function searchClicked(){
         fetchInfo(searchValue);
     }
 
     return (
         <Card theme={theme}>
+            { moreInfo &&
+                <MoreInfoPopup theme={theme} info={info} close={moreInfoClicked}/>
+            }
             <Title> search: </Title>
             <SearchBar theme={theme}>
                 <SearchInput theme={theme} placeholder="SKU" value={searchValue} onChange={(e)=> setSearchValue(e.target.value)}/>
@@ -65,9 +77,9 @@ function SearchCard({theme}){
                 <ImageContainer theme={theme}> <ProductImage src={info['img_link']}/> </ImageContainer>
                 <ProductOptions>
                     <SKUDisplay theme={theme}> <span>{info['SKU']}</span> </SKUDisplay>
-                    <SellButton theme={theme}>Sell</SellButton>
-                    <MoreInfoButton theme={theme}>more info</MoreInfoButton>
-                    <EditButton theme={theme}>edit</EditButton>
+                    <SellButton theme={theme} onClick={sellKey}>Sell</SellButton>
+                    <MoreInfoButton theme={theme} onClick={moreInfoClicked}>more info</MoreInfoButton>
+                    <EditButton theme={theme} onClick={viewUHS}>UHS</EditButton>
                 </ProductOptions>
             </InventoryOptions>
             }
@@ -221,7 +233,7 @@ const ImageContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     height: 17rem;
     width: 11rem;
 
