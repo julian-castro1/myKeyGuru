@@ -5,12 +5,14 @@ import { getKeyInfo } from './AWS';
 import IconBase from '../assets/icons/IconBase';
 import IconVan from '../assets/icons/IconVan';
 import MoreInfoPopup from './MoreInfoPopup';
+import ConfirmPopup from './ConfirmPopup';
 
 function SearchCard({theme}){
     const [displaying, setDisplaying] = useState(false);
     const [info, setInfo] = useState({});
     const [searchValue, setSearchValue] = useState("");
     const [moreInfo, setMoreInfo] = useState(false);
+    const [sellConfirm, setSellConfirm] = useState(false);
 
 
     const fetchInfo = async (SKU) => {
@@ -26,11 +28,15 @@ function SearchCard({theme}){
             }
         }
     };
-    const sellKey = async (SKU) => {
-
+    const sellKey = async () => {
+        sellConfirmClicked();
+        console.log("selling key: " + info['SKU']);
     };
     const moreInfoClicked = () => {
         setMoreInfo(!moreInfo);
+    }
+    const sellConfirmClicked = () => {
+        setSellConfirm(!sellConfirm);
     }
     const viewUHS = () => {
         window.open(info['product_link'], '_blank');
@@ -41,9 +47,8 @@ function SearchCard({theme}){
 
     return (
         <Card theme={theme}>
-            { moreInfo &&
-                <MoreInfoPopup theme={theme} info={info} close={moreInfoClicked}/>
-            }
+            { moreInfo && <MoreInfoPopup theme={theme} info={info} close={moreInfoClicked}/>}
+            { sellConfirm && <ConfirmPopup theme={theme} prompt="Confirm sale?" confirm={sellKey} cancel={sellConfirmClicked}/>}
             <Title> search: </Title>
             <SearchBar theme={theme}>
                 <SearchInput theme={theme} placeholder="SKU" value={searchValue} onChange={(e)=> setSearchValue(e.target.value)}/>
@@ -77,7 +82,7 @@ function SearchCard({theme}){
                 <ImageContainer theme={theme}> <ProductImage src={info['img_link']}/> </ImageContainer>
                 <ProductOptions>
                     <SKUDisplay theme={theme}> <span>{info['SKU']}</span> </SKUDisplay>
-                    <SellButton theme={theme} onClick={sellKey}>Sell</SellButton>
+                    <SellButton theme={theme} onClick={sellConfirmClicked}>Sell</SellButton>
                     <MoreInfoButton theme={theme} onClick={moreInfoClicked}>more info</MoreInfoButton>
                     <EditButton theme={theme} onClick={viewUHS}>UHS</EditButton>
                 </ProductOptions>
