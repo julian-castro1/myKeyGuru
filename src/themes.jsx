@@ -3,7 +3,8 @@
 export const themes = {
     dark:{
         current: 'dark',
-        text: '#191919',
+        text: '#E5E5E5',
+        primaryText: '#191919',
         primary: '#77CC55',
         secondary: '#1B570F',
         tertiary: '#F07575',
@@ -12,10 +13,12 @@ export const themes = {
         back3: '#121212',
         back2: '#191919',
         back1: '#242424',
+        icon: '#A3A3A3',
     },
     light:{
         current: 'light',
-        text: '#E5E5E5',
+        text: '#191919',
+        primaryText: '#E5E5E5',
         primary: '#77CC55',
         secondary: '#4E8A42',
         tertiary: '#F07575',
@@ -24,5 +27,6 @@ export const themes = {
         back3: '#D6D6D6',
         back2: '#E5E5E5',
         back1: '#F2F2F2',
+        icon: '#A3A3A3',
     }
 }
