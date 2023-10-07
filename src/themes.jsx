@@ -13,8 +13,10 @@ export const themes = {
         back4: '#070707',
         back3: '#121212',
         back2: '#191919',
-        back1: '#242424',
+        back1: '#1f1f1f',
         icon: '#A3A3A3',
+        red: '#f64646',
+        yellow: '#f6d346',
     },
     light:{
         current: 'light',
@@ -30,5 +32,7 @@ export const themes = {
         back2: '#E5E5E5',
         back1: '#F2F2F2',
         icon: '#A3A3A3',
+        red: '#f64646',
+        yellow: '#f6d346',
     }
 }

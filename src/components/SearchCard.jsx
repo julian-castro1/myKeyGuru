@@ -84,17 +84,18 @@ function SearchCard({theme, dispSKU, dispLoc}){
                     <InvValue theme={theme}>{info['location']} </InvValue>
                 </LocationContainer>
             </InventoryContainer>
-            { displaying &&
+            {/* { displaying && */}
                 <InventoryOptions>
-                <ImageContainer theme={theme}> <ProductImage src={info['img_link']}/> </ImageContainer>
-                <ProductOptions>
-                    <SKUDisplay theme={theme}> <span>{info['SKU']}</span> </SKUDisplay>
-                    <SellButton theme={theme} onClick={sellConfirmClicked}>Sell</SellButton>
-                    <MoreInfoButton theme={theme} onClick={moreInfoClicked}>more info</MoreInfoButton>
-                    <EditButton theme={theme} onClick={viewUHS}>UHS</EditButton>
-                </ProductOptions>
-            </InventoryOptions>
-            }
+                    {!displaying && <GrayOverlay theme={theme}><span>search or add key to begin</span></GrayOverlay>}
+                    <ImageContainer theme={theme}> <ProductImage src={info['img_link']}/> </ImageContainer>
+                    <ProductOptions>
+                        <SKUDisplay theme={theme}> <span>{info['SKU']}</span> </SKUDisplay>
+                        <SellButton theme={theme} onClick={sellConfirmClicked}>Sell</SellButton>
+                        <MoreInfoButton theme={theme} onClick={moreInfoClicked}>more info</MoreInfoButton>
+                        <EditButton theme={theme} onClick={viewUHS}>UHS</EditButton>
+                    </ProductOptions>
+                </InventoryOptions>
+            {/* } */}
         </Card>
     )
 }
@@ -238,6 +239,7 @@ const LocationContainer = styled.div`
     flex: 1;
 `;
 const InventoryOptions = styled.div`
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -318,6 +320,26 @@ const IconContainer = styled.div`
     height: 5rem;
 
 `;
+
+
+const GrayOverlay = styled.div`
+    position: absolute;
+    top: 0;
+    left: -.5rem;
+    right: -.5rem;
+    bottom: -.5rem;
+    background-color: ${props=> props.theme.current == 'dark' ? "rgba(0, 0, 0, 0.8)" : "rgba(121, 121, 121, 0.8)"} ; // semi-transparent black
+    border-radius: .5rem;
+    z-index: 10; // to ensure it's on top
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${props => props.theme.back1};
+`;
+
 
 SearchCard.propTypes = {
     theme: PropTypes.dict,

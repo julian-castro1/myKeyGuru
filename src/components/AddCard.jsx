@@ -10,9 +10,9 @@ function AddCard({theme, value, onChange, addKey}){
 
     return (
         <Card theme={theme}>
-            <Title> add key: </Title>
+            <Title theme={theme}> add key: </Title>
             <AddToContainer>
-                <Subtitle>adding to...</Subtitle>
+                <Subtitle theme={theme}>adding to...</Subtitle>
                 <Selectors>
                     <IconContainer onClick={() => setAddTo('van')} theme={theme} cur='van' sel={addTo}> <IconVan  color={addTo === 'van' ? theme.contrastPrimary : theme.icon}/> </IconContainer>
                     <IconContainer onClick={() => setAddTo('base')} theme={theme} cur='base' sel={addTo}> <IconBase  color={addTo === 'base' ? theme.contrastPrimary : theme.icon}/> </IconContainer>
@@ -48,6 +48,8 @@ const AddToContainer = styled.div`
 const Title = styled.div`
     font-weight: 600;
     margin-bottom: 1rem;
+
+    color: ${props => props.theme.text};
 `;
 const AddBar = styled.div`
     display: flex;

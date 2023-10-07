@@ -31,3 +31,16 @@ export function addKeyFetch({SKU = "0", loc = 'van'}){
     });
 }
 
+export function getAlerts() {
+  const url = "https://4n8a6ryxu2.execute-api.us-east-1.amazonaws.com/default/getAlerts";
+  return fetch(url, {
+    method: "POST",
+    mode: "cors",
+    body: "",
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error(`ERROR: Alerts not found!`);
+    }
+    return response.json();
+  });
+}
